@@ -1,9 +1,16 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
-  <Box bg="tomato" w="100%" p={4} color="white">
-    This is the Box
-  </Box>;
+  const { t } = useTranslation();
+  const userName = "Kamil";
+  return (
+    <Box bg="white" color="black.800" w="100%">
+      <Heading>
+        {t("Привет")} {userName} 👋
+      </Heading>
+    </Box>
+  );
 };
 
 export { Header };
