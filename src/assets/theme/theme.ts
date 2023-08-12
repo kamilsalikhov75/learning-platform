@@ -3,10 +3,14 @@ import { extendTheme } from "@chakra-ui/react";
 const colors = {
   orange: { 900: "FF9053", 800: "#FFD5BE", 700: "#F8EFE2", 600: "#FAF5EC" },
   purple: { 900: "#353297", 800: "#E1E2F6", 700: "#EDEDFB", 600: "#FCF9FF" },
+  black: { 900: "#000000", 800: "#211C37" },
+  grey: "#F5F7F9",
 };
 
 const fonts = {
   body: "Gilroy",
+  heading: "Gilroy",
+  mono: "Gilroy",
   fontSizes: {
     xs: "0.75rem",
     sm: "0.875rem",

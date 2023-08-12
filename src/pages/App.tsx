@@ -1,10 +1,16 @@
 import { useTranslation } from "react-i18next";
 import "./App.scss";
 import { Suspense, useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import { Header } from "../components/Header/Header";
+import { Sidebar } from "../components/Sidebar/Sidebar";
+import { Flex } from "@chakra-ui/react";
+import { useRoutes } from "../config/route/routes";
 
 const langs = ["ru", "en"];
 function App() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
+  const { routes } = useRoutes();
   useEffect(() => {
     if (!langs.includes(i18n.language)) {
       i18n.changeLanguage("ru");
@@ -12,7 +18,27 @@ function App() {
   }, []);
   return (
     <Suspense fallback="">
-      <h1>{t("Привет")}</h1>
+      <Flex width="100%">
+        <Sidebar />
+        <Flex
+          padding="25px"
+          w={{ base: "100%", xl: "calc(100% - 250px)" }}
+          flexDirection="column"
+          overflowY='auto'
+          height='100vh'
+        >
+          <Header />
+          <Routes>
+            {routes.map((route) => (
+              <Route
+                key={route.path}
+                path={route.path}
+                element={route.element}
+              />
+            ))}
+          </Routes>
+        </Flex>
+      </Flex>
     </Suspense>
   );
 }
