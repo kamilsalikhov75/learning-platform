@@ -1,8 +1,10 @@
-import { SettingsIcon } from "@chakra-ui/icons";
-import { AboutPage } from "../../pages/AboutPage/AboutPage";
 import { MainPage } from "../../pages/MainPage/MainPage";
 import { SettingPage } from "../../pages/SettingPage/SettingPage";
 import { useTranslation } from "react-i18next";
+import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
+import { ProfileIcon } from "../../components/ui/icons/ProfileIcon";
+import { GearIcon } from "../../components/ui/icons/GearIcon";
+import { HouseIcon } from "../../components/ui/icons/HouseIcon";
 
 export const useRoutes = () => {
   const { t } = useTranslation();
@@ -11,17 +13,19 @@ export const useRoutes = () => {
       path: "/",
       title: t("Главная"),
       element: <MainPage />,
+      icon: <HouseIcon />,
     },
     {
-      path: "/about",
-      title: t("О сервисе"),
-      element: <AboutPage />,
+      path: "/profile",
+      title: t("Профиль"),
+      element: <ProfilePage />,
+      icon: <ProfileIcon />,
     },
     {
       path: "/setting",
       title: t("Настройки"),
       element: <SettingPage />,
-      icon: <SettingsIcon />,
+      icon: <GearIcon />,
     },
   ];
 
