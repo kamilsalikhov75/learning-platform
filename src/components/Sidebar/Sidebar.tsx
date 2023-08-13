@@ -2,12 +2,8 @@ import { Center, Show } from "@chakra-ui/react";
 import { ChatIcon } from "@chakra-ui/icons";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
 import { RoutingMenu } from "../RoutingMenu/RoutingMenu";
-import { useTheme } from "@emotion/react";
 
 const Sidebar = () => {
-  const theme = useTheme();
-  console.log(theme);
-
   return (
     <Show breakpoint="(min-width: 1200px)">
       <Center
