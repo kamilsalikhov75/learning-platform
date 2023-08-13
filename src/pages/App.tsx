@@ -4,7 +4,7 @@ import { Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Header } from "../components/Header/Header";
 import { Sidebar } from "../components/Sidebar/Sidebar";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Show } from "@chakra-ui/react";
 import { useRoutes } from "../config/route/routes";
 import { ProfileSidebar } from "../components/ProfileSidebar/ProfileSidebar";
 
@@ -12,7 +12,7 @@ const langs = ["ru", "en"];
 function App() {
   const { i18n } = useTranslation();
   const { routes } = useRoutes();
-  
+
   useEffect(() => {
     if (!langs.includes(i18n.language)) {
       i18n.changeLanguage("ru");
@@ -22,10 +22,12 @@ function App() {
   return (
     <Suspense fallback="">
       <Flex width="100%">
-        <Sidebar />
+        <Show breakpoint="(min-width: 1200px)">
+          <Sidebar />
+        </Show>
         <Flex
           padding="25px"
-          w={{ base: "100%", xl: "calc(100% - 500px)" }}
+          w={{ base: "100%", xl: "calc(100% - 600px)" }}
           flexDirection="column"
           overflowY="auto"
           height="100vh"
@@ -41,7 +43,9 @@ function App() {
             ))}
           </Routes>
         </Flex>
-        <ProfileSidebar />
+        <Show breakpoint="(min-width: 1200px)">
+          <ProfileSidebar />
+        </Show>
       </Flex>
     </Suspense>
   );

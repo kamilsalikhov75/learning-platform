@@ -19,11 +19,10 @@ const RoutingMenu: FC<RoutingMenuProps> = (props) => {
         return (
           <Button
             borderRadius="20px"
+            isActive={isActive}
             key={route.path}
             as={Link}
             to={route.path}
-            bg={isActive ? "black.800" : "transparent"}
-            color={isActive ? "white" : "black.800"}
             leftIcon={route?.icon}
             _hover={{}}
             w="100%"

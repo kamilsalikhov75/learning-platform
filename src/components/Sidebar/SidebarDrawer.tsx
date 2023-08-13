@@ -1,6 +1,5 @@
-import { ChatIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
-  Center,
   Drawer,
   DrawerBody,
   DrawerContent,
@@ -8,8 +7,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useRef } from "react";
-import { RoutingMenu } from "../RoutingMenu/RoutingMenu";
-import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
+import { Sidebar } from "./Sidebar";
 
 const SidebarDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,7 +20,6 @@ const SidebarDrawer = () => {
         ref={btnRef}
         icon={<HamburgerIcon />}
         onClick={onOpen}
-        marginRight='20px'
       />
       <Drawer
         isOpen={isOpen}
@@ -32,20 +29,7 @@ const SidebarDrawer = () => {
       >
         <DrawerContent bg="grey">
           <DrawerBody padding="0">
-            <Center
-              width="100%"
-              height="100vh"
-              flexDirection="column"
-              justifyContent="space-between"
-              padding="25px"
-              bg="grey"
-            >
-              <Center flexDirection="column" gap="10px" w="100%">
-                <ChatIcon />
-                <RoutingMenu onClick={onClose} />
-              </Center>
-              <LangSwitcher />
-            </Center>
+            <Sidebar width="100%" onClose={onClose}/>
           </DrawerBody>
         </DrawerContent>
       </Drawer>

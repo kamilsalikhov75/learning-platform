@@ -8,7 +8,7 @@ const Header = () => {
   const userName = "Kamil";
 
   return (
-    <Flex bg="white" color="black.800" w="100%">
+    <Flex w="100%" justifyContent="space-between">
       <Show breakpoint="(max-width: 1200px)">
         <SidebarDrawer />
       </Show>
