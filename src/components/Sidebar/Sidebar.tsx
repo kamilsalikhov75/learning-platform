@@ -1,26 +1,35 @@
-import { Center, Show } from "@chakra-ui/react";
-import { ChatIcon } from "@chakra-ui/icons";
+import { Center, Heading, useColorModeValue } from "@chakra-ui/react";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
 import { RoutingMenu } from "../RoutingMenu/RoutingMenu";
+import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
+import { FC } from "react";
 
-const Sidebar = () => {
+interface SidebarProps {
+  width?: string;
+  onClose?: () => void;
+}
+
+const Sidebar: FC<SidebarProps> = (props) => {
+  const { width = "250px", onClose } = props;
+  const bgColor = useColorModeValue("white.700", "black.800");
   return (
-    <Show breakpoint="(min-width: 1200px)">
-      <Center
-        width="250px"
-        height="100vh"
-        flexDirection="column"
-        justifyContent="space-between"
-        padding="25px"
-        bg="grey"
-      >
-        <Center flexDirection="column" gap="10px" w="100%">
-          <ChatIcon />
-          <RoutingMenu />
-        </Center>
-        <LangSwitcher />
+    <Center
+      width={width}
+      height="100vh"
+      flexDirection="column"
+      justifyContent="space-between"
+      padding="25px"
+      bg={bgColor}
+    >
+      <Center flexDirection="column" gap="10px" w="100%">
+        <Heading>Langino 📚</Heading>
+        <RoutingMenu onClick={onClose} />
       </Center>
-    </Show>
+      <Center flexDirection="column" gap="10px" w="100%">
+        <ThemeSwitcher width="100%" />
+        <LangSwitcher width="100%" />
+      </Center>
+    </Center>
   );
 };
 export { Sidebar };
