@@ -1,7 +1,8 @@
 import { Button, Flex } from "@chakra-ui/react";
 import { Link, useLocation } from "react-router-dom";
-import { useRoutes } from "../../config/route/routes";
+import { RouteMode, useRoutes } from "../../config/route/routes";
 import { FC } from "react";
+import { setAuth } from "../../effector/auth";
 
 interface RoutingMenuProps {
   onClick?: () => void;
@@ -10,7 +11,7 @@ interface RoutingMenuProps {
 const RoutingMenu: FC<RoutingMenuProps> = (props) => {
   const { onClick = undefined } = props;
   const { pathname } = useLocation();
-  const { routes } = useRoutes();
+  const { routes } = useRoutes({ mode: RouteMode.Sidebar });
 
   return (
     <Flex gap="24px" flexDirection="column" width="100%">
@@ -32,6 +33,9 @@ const RoutingMenu: FC<RoutingMenuProps> = (props) => {
           </Button>
         );
       })}
+      <Button borderRadius="20px" w="100%" onClick={() => setAuth(false)}>
+        Выход
+      </Button>
     </Flex>
   );
 };
