@@ -10,7 +10,7 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = (props) => {
-  const { width = "250px", onClose } = props;
+  const { width = "300px", onClose } = props;
   const bgColor = useColorModeValue("white.700", "black.800");
   return (
     <Center
@@ -22,7 +22,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
       bg={bgColor}
     >
       <Center flexDirection="column" gap="10px" w="100%">
-        <Heading>Langino 📚</Heading>
+        <Heading>JS School 👨🏻‍💻</Heading>
         <RoutingMenu onClick={onClose} />
       </Center>
       <Center flexDirection="column" gap="10px" w="100%">
