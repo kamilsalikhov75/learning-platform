@@ -2,7 +2,7 @@ import { FC, Suspense } from "react";
 import { Header } from "../Header/Header";
 import { ProfileSidebar } from "../ProfileSidebar/ProfileSidebar";
 import { Sidebar } from "../Sidebar/Sidebar";
-import { Flex } from "@chakra-ui/react";
+import { Flex, Show } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
 
 interface DashboardLayoutProps {
@@ -15,10 +15,12 @@ const DashboardLayout: FC<DashboardLayoutProps> = (props) => {
 
   return (
     <>
-      {(pathname !== "/login"&&pathname !== "/register")  ? (
+      {pathname !== "/login" && pathname !== "/register" ? (
         <Suspense fallback="">
           <Flex width="100%">
-            <Sidebar />
+            <Show breakpoint="(min-width: 1200px)">
+              <Sidebar />
+            </Show>
             <Flex
               padding="25px"
               w={{ base: "100%", xl: "calc(100% - 600px)" }}
@@ -29,7 +31,9 @@ const DashboardLayout: FC<DashboardLayoutProps> = (props) => {
               <Header />
               {children}
             </Flex>
-            <ProfileSidebar />
+            <Show breakpoint="(min-width: 1200px)">
+              <ProfileSidebar />
+            </Show>
           </Flex>
         </Suspense>
       ) : (

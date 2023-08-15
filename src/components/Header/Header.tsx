@@ -9,13 +9,13 @@ const Header = () => {
 
   return (
     <Flex w="100%" justifyContent="space-between">
-      <Show breakpoint="(min-width: 1200px)">
+      <Show breakpoint="(max-width: 1200px)">
         <SidebarDrawer />
       </Show>
       <Heading>
         {t("Привет")} {userName} 👋
       </Heading>
-      <Show breakpoint="(min-width: 1200px)">
+      <Show breakpoint="(max-width: 1200px)">
         <ProfileDrawer />
       </Show>
     </Flex>
