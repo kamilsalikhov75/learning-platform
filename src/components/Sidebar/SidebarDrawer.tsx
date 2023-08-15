@@ -4,6 +4,7 @@ import {
   DrawerBody,
   DrawerContent,
   IconButton,
+  useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useRef } from "react";
@@ -12,6 +13,7 @@ import { Sidebar } from "./Sidebar";
 const SidebarDrawer = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
+  const bgColor = useColorModeValue("white.700", "black.800");
 
   return (
     <>
@@ -27,9 +29,9 @@ const SidebarDrawer = () => {
         onClose={onClose}
         finalFocusRef={btnRef}
       >
-        <DrawerContent bg="grey">
+        <DrawerContent bg={bgColor}>
           <DrawerBody padding="0">
-            <Sidebar width="100%" onClose={onClose}/>
+            <Sidebar width="100%" onClose={onClose} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
