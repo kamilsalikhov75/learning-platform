@@ -1,5 +1,4 @@
 import { MainPage } from "../../pages/MainPage/MainPage";
-import { SettingPage } from "../../pages/SettingPage/SettingPage";
 import { useTranslation } from "react-i18next";
 import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
 import { ProfileIcon } from "../../components/ui/icons/ProfileIcon";
