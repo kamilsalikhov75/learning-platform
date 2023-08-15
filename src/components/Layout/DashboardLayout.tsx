@@ -21,7 +21,7 @@ const DashboardLayout: FC<DashboardLayoutProps> = (props) => {
             <Sidebar />
             <Flex
               padding="25px"
-              w={{ base: "100%", xl: "calc(100% - 500px)" }}
+              w={{ base: "100%", xl: "calc(100% - 600px)" }}
               flexDirection="column"
               overflowY="auto"
               height="100vh"

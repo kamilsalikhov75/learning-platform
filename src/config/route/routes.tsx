@@ -7,6 +7,8 @@ import { GearIcon } from "../../components/ui/icons/GearIcon";
 import { HouseIcon } from "../../components/ui/icons/HouseIcon";
 import { LoginPage } from "../../pages/LoginPage/LoginPage";
 import { RegisterPage } from "../../pages/RegisterPage/RegisterPage";
+import { CommunityPage } from "../../pages/CommunityPage/CommunityPage";
+import { CommunityIcon } from "../../components/ui/icons/CommunityIcon";
 
 interface UseRoutesArgs {
   mode?: RouteMode;
@@ -45,10 +47,10 @@ export const useRoutes: UseRoutes = ({ mode = RouteMode.Default }) => {
       modes: [RouteMode.Default, RouteMode.Sidebar],
     },
     {
-      path: "/setting",
-      title: t("Настройки"),
-      element: <SettingPage />,
-      icon: <GearIcon />,
+      path: "/community",
+      title: t("Комьюнити"),
+      element: <CommunityPage />,
+      icon: <CommunityIcon />,
       modes: [RouteMode.Default, RouteMode.Sidebar],
     },
     {

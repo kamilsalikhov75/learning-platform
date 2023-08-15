@@ -4,7 +4,7 @@ import {
 } from "@chakra-ui/react";
 import { FC } from "react";
 
-interface ButtonProps extends ChakraButtonProps {}
+export interface ButtonProps extends ChakraButtonProps {}
 
 const Button: FC<ButtonProps> = (props) => {
   const { onClick, width, children, ...otherProps } = props;
