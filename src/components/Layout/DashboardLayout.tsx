@@ -37,7 +37,7 @@ const DashboardLayout: FC<DashboardLayoutProps> = (props) => {
           </Flex>
         </Suspense>
       ) : (
-        <>{children}</>
+        <Suspense fallback="">{children}</Suspense>
       )}
     </>
   );

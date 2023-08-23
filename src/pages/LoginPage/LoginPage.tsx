@@ -14,7 +14,7 @@ import { mockUser } from "../../effector/mocks/user";
 
 const LoginPage = () => {
   return (
-    <Flex w="100vw" h="100vh" flexDirection="column">
+    <Flex w="100vw" h="100vh" flexDirection="column" p="0 10px">
       <AuthHeader />
       <Center justifyContent="center" h="100%">
         <FormControl w="500px">
