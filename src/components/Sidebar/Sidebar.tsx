@@ -22,7 +22,7 @@ const Sidebar: FC<SidebarProps> = (props) => {
       bg={bgColor}
     >
       <Center flexDirection="column" gap="10px" w="100%">
-        <Heading>JS School 👨🏻‍💻</Heading>
+        <Heading>👨🏻‍💻</Heading>
         <RoutingMenu onClick={onClose} />
       </Center>
       <Center flexDirection="column" gap="10px" w="100%">

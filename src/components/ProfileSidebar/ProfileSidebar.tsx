@@ -2,12 +2,10 @@ import {
   Avatar,
   Center,
   Flex,
-  Heading,
   Link,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FC } from "react";
-import { useTranslation } from "react-i18next";
 import { GITHUB_LINK, TELEGRAM_LINK } from "../../const/const";
 import { useStore } from "effector-react";
 import { $user } from "../../effector/user";
@@ -19,7 +17,6 @@ interface ProfileSidebarProps {
 }
 
 const ProfileSidebar: FC<ProfileSidebarProps> = (props) => {
-  const { t } = useTranslation();
   const { width = "300px" } = props;
   const { githubUserName, telegramUserName, userName } = useStore($user);
 
@@ -34,9 +31,6 @@ const ProfileSidebar: FC<ProfileSidebarProps> = (props) => {
       bg={bgColor}
     >
       <Flex flexDirection="column" gap="10px" w="100%">
-        <Heading size="md" marginBottom="30px">
-          {t("Профиль")}
-        </Heading>
         <Center>
           <Avatar
             size="2xl"

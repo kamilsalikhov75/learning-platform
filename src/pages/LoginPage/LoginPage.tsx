@@ -11,15 +11,17 @@ import { Link } from "react-router-dom";
 import { AuthHeader } from "../../components/Header/AuthHeader";
 import { login } from "../../effector/user";
 import { mockUser } from "../../effector/mocks/user";
+import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
+  const { t } = useTranslation();
   return (
     <Flex w="100vw" h="100vh" flexDirection="column" p="0 10px">
       <AuthHeader />
       <Center justifyContent="center" h="100%">
         <FormControl w="500px">
           <FormLabel marginBottom="50px">
-            <Heading>Login</Heading>
+            <Heading>{t("Авторизация")}</Heading>
           </FormLabel>
           <Input
             variant="flushed"
@@ -30,7 +32,7 @@ const LoginPage = () => {
           <Input
             variant="flushed"
             type="password"
-            placeholder="Password"
+            placeholder={t("Пароль")}
             marginBottom="20px"
           />
           <Button
@@ -40,10 +42,10 @@ const LoginPage = () => {
             borderRadius="20px"
             onClick={() => login(mockUser)}
           >
-            Login
+            {t("Войти")}
           </Button>
           <Button borderRadius="20px" as={Link} to={"/register"} w="100%">
-            Register
+            {t("Регистрация")}
           </Button>
         </FormControl>
       </Center>

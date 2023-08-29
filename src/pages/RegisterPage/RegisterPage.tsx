@@ -11,19 +11,21 @@ import { Link } from "react-router-dom";
 import { AuthHeader } from "../../components/Header/AuthHeader";
 import { login } from "../../effector/user";
 import { mockUser } from "../../effector/mocks/user";
+import { useTranslation } from "react-i18next";
 
 const RegisterPage = () => {
+  const { t } = useTranslation();
   return (
     <Flex w="100vw" h="100vh" flexDirection="column" p="0 10px">
       <AuthHeader />
       <Center justifyContent="center" h="100%">
         <FormControl w="500px">
           <FormLabel marginBottom="50px">
-            <Heading>Register</Heading>
+            <Heading>{t('Регистрация')}</Heading>
           </FormLabel>
           <Input
             variant="flushed"
-            placeholder="Name"
+            placeholder={t("Имя")}
             marginBottom="20px"
             required={true}
           />
@@ -37,18 +39,18 @@ const RegisterPage = () => {
           <Input
             variant="flushed"
             type="password"
-            placeholder="Password"
+            placeholder={t("Пароль")}
             marginBottom="20px"
             required={true}
           />
           <Input
             variant="flushed"
-            placeholder="Telegram username"
+            placeholder={t("Ник в телеграм")}
             marginBottom="20px"
           />
           <Input
             variant="flushed"
-            placeholder="Github username"
+            placeholder={t("Ник в Github")}
             marginBottom="20px"
           />
           <Button
@@ -58,10 +60,10 @@ const RegisterPage = () => {
             borderRadius="20px"
             onClick={() => login(mockUser)}
           >
-            Register
+            {t('Зарегистрироваться')}
           </Button>
           <Button borderRadius="20px" as={Link} to={"/login"} w="100%">
-            Login
+          {t('Авторизация')}
           </Button>
         </FormControl>
       </Center>

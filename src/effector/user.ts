@@ -1,8 +1,8 @@
 import { createDomain } from "effector";
 
-const auth = createDomain();
+const user = createDomain();
 
-interface User {
+export interface User {
   isAuth: boolean;
   userName: string;
   email: string;
@@ -18,10 +18,10 @@ const initialState = {
   githubUserName: "",
 };
 
-export const login = auth.createEvent<User>();
-export const logout = auth.createEvent();
+export const login = user.createEvent<User>();
+export const logout = user.createEvent();
 
-export const $user = auth
+export const $user = user
   .createStore<User>(initialState)
   .on(login, (_, payload) => payload)
   .on(logout, () => initialState);

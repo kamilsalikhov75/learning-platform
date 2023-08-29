@@ -6,6 +6,12 @@
     "Профиль": "Profile",
     "Сменить тему": "Change theme",
     "Авторизация": "Login",
-    "Комьюнити": "Community",
-    "Выход": "Logout"
+    "Войти": "Login",
+    "Регистрация": "Register",
+    "Зарегистрироваться": "Register",
+    "Выход": "Logout",
+    "Имя": "Name",
+    "Пароль":"Password",
+    "Ник в телеграм":"Telegram username",
+    "Ник в Github":"Github username"
 }

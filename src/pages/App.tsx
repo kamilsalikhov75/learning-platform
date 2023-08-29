@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useRoutes } from "../config/route/routes";
+import { Path, useRoutes } from "../config/route/routes";
 import { $user } from "../effector/user";
 import { useStore } from "effector-react";
 import { DashboardLayout } from "../components/Layout/DashboardLayout";
@@ -27,14 +27,14 @@ function App() {
             path={route.path}
             element={
               isAuth &&
-              (route.path === "/login" || route.path === "/register") ? (
-                <Navigate to="/" />
+              (route.path === Path.Login || route.path === Path.Register) ? (
+                <Navigate to={Path.Main} />
               ) : isAuth ||
-                route.path === "/login" ||
-                route.path === "/register" ? (
+                route.path === Path.Login ||
+                route.path === Path.Register ? (
                 route.element
               ) : (
-                <Navigate to="/login" />
+                <Navigate to={Path.Login} />
               )
             }
           />

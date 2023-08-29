@@ -6,16 +6,15 @@ import { GearIcon } from "../../components/ui/icons/GearIcon";
 import { HouseIcon } from "../../components/ui/icons/HouseIcon";
 import { LoginPage } from "../../pages/LoginPage/LoginPage";
 import { RegisterPage } from "../../pages/RegisterPage/RegisterPage";
-import { CommunityPage } from "../../pages/CommunityPage/CommunityPage";
-import { CommunityIcon } from "../../components/ui/icons/CommunityIcon";
+import { NotFoundPage } from "../../pages/NotFoundPage/NotFoundPage";
 
 interface UseRoutesArgs {
   mode?: RouteMode;
 }
 
 interface Route {
-  path: string;
-  title: string;
+  path: Path;
+  title?: string;
   element: JSX.Element;
   icon?: JSX.Element;
   modes: RouteMode[];
@@ -26,44 +25,52 @@ export enum RouteMode {
   Sidebar = "sidebar",
 }
 
+export enum Path {
+  Main = "/",
+  Profile = "/profile",
+  Login = "/login",
+  Register = "/register",
+  NotFound = "*",
+}
+
+export const paths = Object.values(Path);
+
 type UseRoutes = (args: UseRoutesArgs) => { routes: Route[] };
 
 export const useRoutes: UseRoutes = ({ mode = RouteMode.Default }) => {
   const { t } = useTranslation();
   const routes = [
     {
-      path: "/",
+      path: Path.Main,
       title: t("Главная"),
       element: <MainPage />,
       icon: <HouseIcon />,
       modes: [RouteMode.Default, RouteMode.Sidebar],
     },
     {
-      path: "/profile",
+      path: Path.Profile,
       title: t("Профиль"),
       element: <ProfilePage />,
       icon: <ProfileIcon />,
       modes: [RouteMode.Default, RouteMode.Sidebar],
     },
     {
-      path: "/community",
-      title: t("Комьюнити"),
-      element: <CommunityPage />,
-      icon: <CommunityIcon />,
-      modes: [RouteMode.Default, RouteMode.Sidebar],
-    },
-    {
-      path: "/login",
+      path: Path.Login,
       title: t("Авторизация"),
       element: <LoginPage />,
       icon: <GearIcon />,
       modes: [RouteMode.Default],
     },
     {
-      path: "/register",
+      path: Path.Register,
       title: t("Регистрация"),
       element: <RegisterPage />,
       icon: <GearIcon />,
+      modes: [RouteMode.Default],
+    },
+    {
+      path: Path.NotFound,
+      element: <NotFoundPage />,
       modes: [RouteMode.Default],
     },
   ];

@@ -4,6 +4,7 @@ import { ProfileSidebar } from "../ProfileSidebar/ProfileSidebar";
 import { Sidebar } from "../Sidebar/Sidebar";
 import { Flex, Show } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
+import { Path, paths } from "../../config/route/routes";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -12,10 +13,13 @@ interface DashboardLayoutProps {
 const DashboardLayout: FC<DashboardLayoutProps> = (props) => {
   const { children } = props;
   const { pathname } = useLocation();
-
+  const withLayout =
+    pathname !== Path.Login &&
+    pathname !== Path.Register &&
+    paths.includes(pathname as Path);
   return (
     <>
-      {pathname !== "/login" && pathname !== "/register" ? (
+      {withLayout ? (
         <Suspense fallback="">
           <Flex width="100%">
             <Show breakpoint="(min-width: 1200px)">
