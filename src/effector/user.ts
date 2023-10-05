@@ -1,4 +1,5 @@
 import { createDomain } from "effector";
+import { externalSystemCall } from "@/shared/api/base";
 
 const user = createDomain();
 
@@ -18,10 +19,16 @@ const initialState = {
   githubUserName: "",
 };
 
-export const login = user.createEvent<User>();
+export const login = user.createEffect(
+  (data: { email: string; password: string }) =>
+    externalSystemCall({
+      endpoint: "auth/login",
+      method: "POST",
+      data,
+    })
+);
 export const logout = user.createEvent();
 
 export const $user = user
   .createStore<User>(initialState)
-  .on(login, (_, payload) => payload)
   .on(logout, () => initialState);
