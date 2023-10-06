@@ -1,16 +1,24 @@
 import { useTranslation } from "react-i18next";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Path, useRoutes } from "../config/route/routes";
-import { $user } from "../effector/user";
+import { $user, getMe } from "../effector/user";
 import { useStore } from "effector-react";
 import { DashboardLayout } from "../components/Layout/DashboardLayout";
 import { useEffect } from "react";
+import Cookies from "js-cookie";
 
 const langs = ["ru", "en"];
 function App() {
   const { isAuth } = useStore($user);
   const { i18n } = useTranslation();
   const { routes } = useRoutes({});
+
+  useEffect(() => {
+    const token = Cookies.get("token");
+    if (token) {
+      getMe();
+    }
+  }, []);
 
   useEffect(() => {
     if (!langs.includes(i18n.language)) {

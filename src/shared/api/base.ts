@@ -1,7 +1,9 @@
+import { createStandaloneToast } from "@chakra-ui/react";
 import axios, { Method, ResponseType } from "axios";
 import Cookies from "js-cookie";
 
 export const REACT_APP_ENDPOINT_URL = `http://localhost:3000/`;
+const { toast } = createStandaloneToast();
 
 interface IExternalSystemCallArguments<T> {
   method: Method;
@@ -19,21 +21,25 @@ export async function externalSystemCall<T>({
   responseType,
 }: IExternalSystemCallArguments<T>) {
   try {
+    const bearerToken = Cookies.get("token");
     const client = axios.create({
       baseURL: url,
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${bearerToken}`,
       },
     });
 
     client.interceptors.response.use(
       (response) => response,
       async (error) => {
+        console.log(error.response.data.message);
+
         if (error.response.status === 401) {
           Cookies.remove("token");
-          return Promise.reject(
-            new Error("Срок сессии истек. Авторизуйтесь снова.")
-          );
+          // return Promise.reject(
+          //   new Error("Срок сессии истек. Авторизуйтесь снова.")
+          // );
         }
         return Promise.reject(error);
       }
@@ -47,7 +53,10 @@ export async function externalSystemCall<T>({
     });
     return response;
   } catch (error) {
-    console.log(error.message);
-    return error;
+    toast({
+      status: "error",
+      title: error.response.data.message,
+    });
+    return Promise.reject(new Error(error.message));
   }
 }

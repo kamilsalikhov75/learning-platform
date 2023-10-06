@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { useTranslation } from "react-i18next";
-import { Button } from "../ui/Button/Button";
+import { Button } from "../../shared/ui/Button/Button";
 
 interface LangSwitcherProps {
   width?: string;

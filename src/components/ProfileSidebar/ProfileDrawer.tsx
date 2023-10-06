@@ -7,7 +7,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useRef } from "react";
-import { ProfileIcon } from "../ui/icons/ProfileIcon";
+import { ProfileIcon } from "../../shared/ui/icons/ProfileIcon";
 import { ProfileSidebar } from "./ProfileSidebar";
 
 const ProfileDrawer = () => {

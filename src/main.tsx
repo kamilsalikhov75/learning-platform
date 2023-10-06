@@ -6,12 +6,15 @@ import "./assets/styles/index.scss";
 import "./config/i18next/i18next";
 import { theme } from "./assets/theme/theme";
 import { BrowserRouter } from "react-router-dom";
+// import { NotificationProvider } from "./pages/NotificationProvider";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
       <ChakraProvider theme={theme}>
-        <App />
+        {/* <NotificationProvider> */}
+          <App />
+        {/* </NotificationProvider> */}
       </ChakraProvider>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,5 +1,5 @@
 import { Box, Center, Heading, Text } from "@chakra-ui/react";
-import { Button } from "../../components/ui/Button/Button";
+import { Button } from "../../shared/ui/Button/Button";
 import { useNavigate } from "react-router-dom";
 import { Path } from "../../config/route/routes";
 

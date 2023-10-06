@@ -11,7 +11,8 @@
     "Зарегистрироваться": "Register",
     "Выход": "Logout",
     "Имя": "Name",
-    "Пароль":"Password",
-    "Ник в телеграм":"Telegram username",
-    "Ник в Github":"Github username"
+    "Пароль": "Password",
+    "Ник в телеграм": "Telegram username",
+    "Ник в Github": "Github username",
+    "Роадмапы": "Roadmaps"
 }

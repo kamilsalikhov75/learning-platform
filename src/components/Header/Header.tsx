@@ -7,14 +7,14 @@ import { useStore } from "effector-react";
 
 const Header = () => {
   const { t } = useTranslation();
-  const { userName } = useStore($user);
+  const { firstName } = useStore($user);
   return (
     <Flex w="100%" justifyContent="space-between">
       <Show breakpoint="(max-width: 1200px)">
         <SidebarDrawer />
       </Show>
       <Heading>
-        {t("Привет")} {userName} 👋
+        {t("Привет")} {firstName} 👋
       </Heading>
       <Show breakpoint="(max-width: 1200px)">
         <ProfileDrawer />

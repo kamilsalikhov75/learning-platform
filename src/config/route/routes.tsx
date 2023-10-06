@@ -1,12 +1,11 @@
-import { MainPage } from "../../pages/MainPage/MainPage";
+import { LoginPage } from "@/pages/LoginPage/LoginPage";
+import { MainPage } from "@/pages/MainPage/MainPage";
+import { NotFoundPage } from "@/pages/NotFoundPage/NotFoundPage";
+import { ProfilePage } from "@/pages/ProfilePage/ProfilePage";
+import { RegisterPage } from "@/pages/RegisterPage/RegisterPage";
+import { RoadmapsPage } from "@/pages/RoadmapsPage/RoadmapsPage";
+import { HouseIcon, ProfileIcon, RoadIcon } from "@/shared/ui/icons";
 import { useTranslation } from "react-i18next";
-import { ProfilePage } from "../../pages/ProfilePage/ProfilePage";
-import { ProfileIcon } from "../../components/ui/icons/ProfileIcon";
-import { GearIcon } from "../../components/ui/icons/GearIcon";
-import { HouseIcon } from "../../components/ui/icons/HouseIcon";
-import { LoginPage } from "../../pages/LoginPage/LoginPage";
-import { RegisterPage } from "../../pages/RegisterPage/RegisterPage";
-import { NotFoundPage } from "../../pages/NotFoundPage/NotFoundPage";
 
 interface UseRoutesArgs {
   mode?: RouteMode;
@@ -30,6 +29,7 @@ export enum Path {
   Profile = "/profile",
   Login = "/login",
   Register = "/register",
+  Roadmaps = "/roadmaps",
   NotFound = "*",
 }
 
@@ -58,15 +58,20 @@ export const useRoutes: UseRoutes = ({ mode = RouteMode.Default }) => {
       path: Path.Login,
       title: t("Авторизация"),
       element: <LoginPage />,
-      icon: <GearIcon />,
       modes: [RouteMode.Default],
     },
     {
       path: Path.Register,
       title: t("Регистрация"),
       element: <RegisterPage />,
-      icon: <GearIcon />,
       modes: [RouteMode.Default],
+    },
+    {
+      path: Path.Roadmaps,
+      title: t("Роадмапы"),
+      element: <RoadmapsPage />,
+      icon: <RoadIcon />,
+      modes: [RouteMode.Default, RouteMode.Sidebar],
     },
     {
       path: Path.NotFound,
