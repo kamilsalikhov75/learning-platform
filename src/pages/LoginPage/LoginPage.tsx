@@ -8,8 +8,8 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthHeader } from "../../components/Header/AuthHeader";
-import { $user, login } from "../../effector/user";
+import { AuthHeader } from "@/widgets/Header";
+import { $user, login } from "@/features/user";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useStore } from "effector-react";

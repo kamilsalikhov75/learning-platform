@@ -9,9 +9,9 @@ import {
 import { FC } from "react";
 import { GITHUB_LINK, TELEGRAM_LINK } from "../../const/const";
 import { useStore } from "effector-react";
-import { $user } from "../../effector/user";
 import { TelegramIcon } from "../../shared/ui/icons/TelegramIcon";
 import { GithubIcon } from "../../shared/ui/icons/GithubIcon";
+import { $user } from "@/features/user";
 
 interface ProfileSidebarProps {
   width?: string;

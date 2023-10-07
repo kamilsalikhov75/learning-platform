@@ -8,8 +8,8 @@ import {
   Input,
 } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
-import { AuthHeader } from "../../components/Header/AuthHeader";
-import { $user, register } from "@/effector/user";
+import { AuthHeader } from "@/widgets/Header";
+import { $user, register } from "@/features/user";
 import { useTranslation } from "react-i18next";
 import { Formik, Form, Field } from "formik";
 import { RegisterRequest } from "@/shared/api/types";

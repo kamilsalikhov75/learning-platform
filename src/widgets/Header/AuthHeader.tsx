@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/react";
-import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
-import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
+import { ThemeSwitcher } from "../../shared/ui/ThemeSwitcher/ThemeSwitcher";
+import { LangSwitcher } from "../../components/LangSwitcher/LangSwitcher";
 
 const AuthHeader = () => {
   return (

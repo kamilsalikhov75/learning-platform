@@ -1,5 +1,5 @@
 import { FC, Suspense } from "react";
-import { Header } from "../Header/Header";
+import { Header } from "@/widgets/Header";
 import { ProfileSidebar } from "../ProfileSidebar/ProfileSidebar";
 import { Sidebar } from "../Sidebar/Sidebar";
 import { Flex, Show } from "@chakra-ui/react";
