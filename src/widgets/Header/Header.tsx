@@ -1,9 +1,9 @@
 import { Flex, Heading, Show } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { SidebarDrawer } from "../Sidebar/SidebarDrawer";
-import { ProfileDrawer } from "../ProfileSidebar/ProfileDrawer";
-import { $user } from "../../effector/user";
+import { SidebarDrawer } from "../../components/Sidebar/SidebarDrawer";
+import { ProfileDrawer } from "../../components/ProfileSidebar/ProfileDrawer";
 import { useStore } from "effector-react";
+import { $user } from "@/features/user";
 
 const Header = () => {
   const { t } = useTranslation();

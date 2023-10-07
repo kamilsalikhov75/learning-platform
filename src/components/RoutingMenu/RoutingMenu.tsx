@@ -2,8 +2,9 @@ import { Button, Flex } from "@chakra-ui/react";
 import { Link, useLocation } from "react-router-dom";
 import { RouteMode, useRoutes } from "../../config/route/routes";
 import { FC } from "react";
-import { logout } from "../../effector/user";
 import { useTranslation } from "react-i18next";
+import { useStore } from "effector-react";
+import { logout, $user } from "@/features/user";
 
 interface RoutingMenuProps {
   onClick?: () => void;
@@ -12,7 +13,8 @@ interface RoutingMenuProps {
 const RoutingMenu: FC<RoutingMenuProps> = (props) => {
   const { onClick = undefined } = props;
   const { pathname } = useLocation();
-  const { routes } = useRoutes({ mode: RouteMode.Sidebar });
+  const { role } = useStore($user);
+  const { routes } = useRoutes({ mode: RouteMode.Sidebar, role });
   const { t } = useTranslation();
 
   return (

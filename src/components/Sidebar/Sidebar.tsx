@@ -1,7 +1,7 @@
 import { Center, Heading, useColorModeValue } from "@chakra-ui/react";
 import { LangSwitcher } from "../LangSwitcher/LangSwitcher";
 import { RoutingMenu } from "../RoutingMenu/RoutingMenu";
-import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
+import { ThemeSwitcher } from "../../shared/ui/ThemeSwitcher/ThemeSwitcher";
 import { FC } from "react";
 
 interface SidebarProps {

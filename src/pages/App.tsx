@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Path, useRoutes } from "../config/route/routes";
-import { $user, getMe } from "../effector/user";
 import { useStore } from "effector-react";
 import { DashboardLayout } from "../components/Layout/DashboardLayout";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
+import { $user, getMe } from "@/features/user";
 
 const langs = ["ru", "en"];
 function App() {
