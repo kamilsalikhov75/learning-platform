@@ -21,21 +21,6 @@ export enum Sex {
 
 export type UserDocument = User & Document;
 
-@Schema({ _id: false })
-export class Answer {
-  @ApiProperty()
-  @Prop({
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Question',
-    required: true,
-  })
-  question: Question;
-
-  @ApiProperty()
-  @Prop({ required: true })
-  answer: string;
-}
-
 @Schema()
 export class User {
   @ApiProperty()
