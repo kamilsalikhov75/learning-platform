@@ -36,24 +36,6 @@ export class Answer {
   answer: string;
 }
 
-@Schema({ _id: false })
-export class FinishedTest {
-  @ApiProperty()
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Test', required: true })
-  test: Test;
-
-  @ApiProperty()
-  @Prop()
-  correctAnswersCount: number;
-
-  @ApiProperty({ type: [Answer] })
-  @Prop({
-    type: [Answer],
-    required: true,
-  })
-  answers: [Answer];
-}
-
 @Schema()
 export class User {
   @ApiProperty()
@@ -95,12 +77,12 @@ export class User {
   })
   finishedLessons: Lesson[];
 
-  @ApiProperty({ type: [FinishedTest] })
+  @ApiProperty({ type: [String] })
   @Prop({
-    type: [FinishedTest],
-    required: true,
+    type: [mongoose.Schema.Types.ObjectId],
+    required: 'Test',
   })
-  finishedTests: [FinishedTest];
+  finishedTests: Test[];
 
   @ApiProperty()
   @Prop()

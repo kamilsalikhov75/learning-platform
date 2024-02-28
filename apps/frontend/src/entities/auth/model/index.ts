@@ -66,6 +66,7 @@ export const updateMe = createEffect(
     phone?: string;
     sex?: Sex;
     finishedLessons?: string[];
+    finishedTests?: string[];
   }) => {
     const { data: responseData } = await backend.request<User>({
       method: "PUT",

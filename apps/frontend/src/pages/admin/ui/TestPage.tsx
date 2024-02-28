@@ -1,5 +1,5 @@
 import { getTest, useCourses } from "entities/course";
-import { CreateQuestionForm, Question } from "features/course";
+import { CreateQuestionForm, AdminQuestion } from "features/course";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
@@ -17,7 +17,7 @@ export const AdminTestPage = () => {
     <>
       <CreateQuestionForm />
       {currentTest?.questions.map((question) => {
-        return <Question key={question._id} question={question} />;
+        return <AdminQuestion key={question._id} question={question} />;
       })}
     </>
   );

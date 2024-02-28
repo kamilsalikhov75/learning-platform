@@ -14,7 +14,7 @@ import {
   LessonPage as AdminLessonPage,
   JobsPage as AdminJobsPage,
 } from "pages/admin";
-import { CoursePage, LessonPage } from "pages/course";
+import { CoursePage, LessonPage, TestPage } from "pages/course";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +50,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <LessonPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "tests/:testId",
+        element: (
+          <PrivateRoute>
+            <TestPage />
           </PrivateRoute>
         ),
       },

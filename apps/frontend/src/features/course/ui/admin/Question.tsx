@@ -6,11 +6,11 @@ import {
 } from "entities/course";
 import { QuestionOption } from "./QuestionOption";
 
-export interface QuestionProps {
+export interface AdminQuestionProps {
   question: IQuestion;
 }
 
-export const Question = ({ question }: QuestionProps) => {
+export const AdminQuestion = ({ question }: AdminQuestionProps) => {
   const { currentTest } = useCourses();
 
   const onQuestionDelete = () => {

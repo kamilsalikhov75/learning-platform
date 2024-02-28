@@ -36,3 +36,8 @@ export interface CourseStore {
   lessons?: Lesson[];
   currentTest?: Test;
 }
+
+export interface Answer {
+  question: string;
+  answer: string;
+}
