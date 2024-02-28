@@ -1,13 +1,13 @@
 import { FormLabel, Radio, RadioGroup, Stack } from "@chakra-ui/react";
 import { Answer, Question as IQuestion } from "entities/course";
 
-export interface QuestionProps {
+export interface TestQuestionProps {
   question: IQuestion;
   onChange: (answer: Answer) => void;
   value: Answer | undefined;
 }
 
-export const Question = ({ question, onChange, value }: QuestionProps) => {
+export const TestQuestion = ({ question, onChange, value }: TestQuestionProps) => {
   const onRadioChange = (nextValue: string) => {
     onChange({ answer: nextValue, question: question._id });
   };

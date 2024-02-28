@@ -8,4 +8,4 @@ export * from "./ui/admin/CreateQuestionForm";
 export * from "./ui/admin/Question";
 export * from "./ui/CourseCard";
 export * from "./ui/LessonCard";
-export * from "./ui/Question";
+export * from "./ui/TestQuestion";

@@ -2,7 +2,7 @@ import { Button, FormControl, Stack, useToast } from "@chakra-ui/react";
 import { updateMe, useAuth } from "entities/auth";
 import { getTest, useCourses } from "entities/course";
 import type { Answer } from "entities/course";
-import { Question } from "features/course";
+import { TestQuestion } from "features/course";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -82,7 +82,7 @@ export const TestPage = () => {
         {currentTest?.questions.map((question) => {
           return (
             <FormControl key={question._id}>
-              <Question
+              <TestQuestion
                 value={answers.find(
                   (answer) => answer.question === question._id
                 )}
