@@ -1,3 +1,3 @@
-import { Job } from './job.entity';
+import { Job } from './job.schema';
 
 export class CreateJobDto extends Job {}

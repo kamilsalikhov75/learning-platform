@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { ApiProperty } from '@nestjs/swagger';
 import mongoose, { HydratedDocument } from 'mongoose';
 import { Job } from 'src/jobs/job.schema';
 import { Lesson } from 'src/lessons/lesson.schema';
@@ -8,9 +9,11 @@ export type CourseDocument = HydratedDocument<Course>;
 
 @Schema()
 export class Course {
+  @ApiProperty()
   @Prop({ required: true })
   title: string;
 
+  @ApiProperty({ type: [String] })
   @Prop({
     type: [mongoose.Schema.Types.ObjectId],
     ref: 'Job',
@@ -18,6 +21,7 @@ export class Course {
   })
   jobs: Job[];
 
+  @ApiProperty()
   @Prop({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Test',
