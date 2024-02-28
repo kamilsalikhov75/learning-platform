@@ -27,6 +27,7 @@ export class TestsController {
     return this.testsService.create(createTestDto);
   }
 
+  @Roles([Role.Default, Role.Supervisor])
   @ApiParam({ name: 'id', required: true, type: String })
   @Get(':id')
   findOne(@Param('id') id: string) {

@@ -27,12 +27,14 @@ export class LessonsController {
     return this.lessonsService.create(createLessonDto);
   }
 
+  @Roles([Role.Default, Role.Supervisor])
   @ApiParam({ name: 'id', required: true, type: String })
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.lessonsService.findOne(id);
   }
 
+  @Roles([Role.Default, Role.Supervisor])
   @ApiParam({ name: 'courseId', required: true, type: String })
   @Get('/course/:courseId')
   findByCourse(@Param('courseId') courseId: string) {

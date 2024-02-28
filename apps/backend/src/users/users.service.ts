@@ -24,11 +24,19 @@ export class UsersService {
   }
 
   async findAll() {
-    return this.usersModel.find({}, { password: 0 }).exec();
+    return this.usersModel.find({}, { password: 0 }).populate('job').exec();
   }
 
   async findById(id: string) {
-    return this.usersModel.findById(id, { password: 0 }).exec();
+    return this.usersModel
+      .findById(id, { password: 0 })
+      .populate({
+        path: 'finishedTests',
+        populate: {
+          path: 'course',
+        },
+      })
+      .exec();
   }
 
   async getUserById(id: string) {

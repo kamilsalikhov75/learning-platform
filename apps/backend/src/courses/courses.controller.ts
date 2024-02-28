@@ -35,7 +35,7 @@ export class CoursesController {
     return this.coursesService.findAll();
   }
 
-  @Roles([Role.Default])
+  @Roles([Role.Default, Role.Supervisor])
   @Get('my')
   findMyCourses(@Req() req: Request & { user: UserDocument }) {
     const { user } = req;
@@ -44,6 +44,7 @@ export class CoursesController {
     return this.coursesService.findByJob(jobId);
   }
 
+  @Roles([Role.Default, Role.Supervisor])
   @ApiParam({ name: 'id', required: true, type: String })
   @Get(':id')
   findOne(@Param('id') id: string) {

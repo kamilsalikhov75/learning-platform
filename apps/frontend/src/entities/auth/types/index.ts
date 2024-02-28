@@ -1,3 +1,4 @@
+import { Test } from "entities/course";
 import { Job } from "entities/job";
 
 export interface User {
@@ -10,7 +11,7 @@ export interface User {
   sex: Sex;
   job: Job;
   finishedLessons: string[];
-  finishedTests: string[];
+  finishedTests: string[] | Test[];
 }
 
 export enum Role {
@@ -27,4 +28,6 @@ export enum Sex {
 export interface AuthStore {
   isAuth: boolean;
   user?: User;
+  users?: User[];
+  currentUser?: User;
 }

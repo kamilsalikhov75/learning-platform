@@ -19,7 +19,7 @@ export class JobsController {
   }
 
   @ApiBody({ type: CreateJobDto })
-  @Roles([Role.Admin])
+  @Public()
   @Post()
   addJob(@Body() createJobDto: CreateJobDto) {
     return this.jobsService.addJob(createJobDto);

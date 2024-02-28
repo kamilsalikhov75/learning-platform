@@ -65,7 +65,9 @@ export const TestPage = () => {
     }
 
     const finishedTests = user?.finishedTests || [];
-    updateMe({ finishedTests: [...finishedTests, currentTest._id] });
+    updateMe({
+      finishedTests: [...(finishedTests as string[]), currentTest._id],
+    });
 
     toast({
       title: "Поздравляем",

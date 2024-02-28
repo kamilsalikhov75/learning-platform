@@ -89,11 +89,33 @@ export const getMe = createEffect(async () => {
   return data;
 });
 
+export const getUsers = createEffect(async () => {
+  const { data } = await backend.request<User[]>({
+    method: "GET",
+    url: `/users`,
+    headers: getHeaders(),
+  });
+
+  return data;
+});
+
+export const getUser = createEffect(async (userId: string) => {
+  const { data } = await backend.request<User>({
+    method: "GET",
+    url: `/users/${userId}`,
+    headers: getHeaders(),
+  });
+
+  return data;
+});
+
 export const $store = createStore<typeof initialState>(initialState)
   .on(login.doneData, (state) => ({ ...state, isAuth: true }))
   .on(register.doneData, (state) => ({ ...state, isAuth: true }))
   .on(getMe.doneData, (state, user) => ({ ...state, user }))
-  .on(updateMe.doneData, (state, user) => ({ ...state, user }));
+  .on(updateMe.doneData, (state, user) => ({ ...state, user }))
+  .on(getUsers.doneData, (state, users) => ({ ...state, users }))
+  .on(getUser.doneData, (state, user) => ({ ...state, currentUser: user }));
 
 export const { logout } = createApi($store, {
   logout: (state) => {

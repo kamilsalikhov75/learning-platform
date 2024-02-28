@@ -8,7 +8,11 @@ export type TestDocument = HydratedDocument<Test>;
 @Schema()
 export class Test {
   @ApiProperty()
-  @Prop({ required: true })
+  @Prop({
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Course',
+    required: true,
+  })
   course: string;
 
   @ApiProperty({ type: [String] })

@@ -18,7 +18,7 @@ export interface Lesson {
 
 export interface Test {
   _id: string;
-  courseId: string;
+  course: string | Course;
   questions: Question[];
 }
 

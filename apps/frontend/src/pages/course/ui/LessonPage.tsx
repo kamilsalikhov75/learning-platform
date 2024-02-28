@@ -23,9 +23,10 @@ export const LessonPage = () => {
 
   const isFinished = lessonId && user?.finishedLessons.includes(lessonId);
 
+  const finishedTests = user?.finishedTests as string[];
   const isTestFinished =
     currentCourse?.test !== undefined &&
-    user?.finishedTests.includes(currentCourse?.test);
+    finishedTests?.includes(currentCourse?.test);
 
   useEffect(() => {
     if (lessonId) {

@@ -1,13 +1,5 @@
 import { CheckCircleIcon } from "@chakra-ui/icons";
-import {
-  Badge,
-  Box,
-  Button,
-  Heading,
-  SimpleGrid,
-  Stack,
-  Tag,
-} from "@chakra-ui/react";
+import { Box, Button, Heading, SimpleGrid, Stack, Tag } from "@chakra-ui/react";
 import { useAuth } from "entities/auth";
 import { getCourse, getCourseLessons, useCourses } from "entities/course";
 import { LessonCard } from "features/course";
@@ -18,12 +10,15 @@ export const CoursePage = () => {
   const { courseId } = useParams();
   const { currentCourse, lessons } = useCourses();
   const { user } = useAuth();
+  const finishedTests = user?.finishedTests as string[];
   const isLessonsFinished =
-    lessons?.filter((lesson) => !user?.finishedLessons.includes(lesson._id))
-      .length === 0 && lessons.length > 0;
+    lessons?.length === 0 ||
+    (lessons?.filter((lesson) => !user?.finishedLessons.includes(lesson._id))
+      .length === 0 &&
+      lessons.length > 0);
   const isTestFinished =
     currentCourse?.test !== undefined &&
-    user?.finishedTests.includes(currentCourse?.test);
+    finishedTests?.includes(currentCourse?.test);
   const navigate = useNavigate();
 
   useEffect(() => {

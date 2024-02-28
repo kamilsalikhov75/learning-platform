@@ -14,4 +14,9 @@ export const ROUTES = [
     href: "/admin",
     role: Role.Admin,
   },
+  {
+    label: "Сотрудники",
+    href: "/supervisor/users",
+    role: Role.Supervisor,
+  },
 ];

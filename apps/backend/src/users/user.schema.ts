@@ -65,7 +65,7 @@ export class User {
   @ApiProperty({ type: [String] })
   @Prop({
     type: [mongoose.Schema.Types.ObjectId],
-    required: 'Test',
+    ref: 'Test',
   })
   finishedTests: Test[];
 
