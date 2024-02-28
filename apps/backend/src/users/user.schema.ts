@@ -33,21 +33,6 @@ export class Answer {
   answer: string;
 }
 
-@Schema({ _id: false })
-export class FinishedTest {
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Test', required: true })
-  test: Test;
-
-  @Prop()
-  correctAnswersCount: number;
-
-  @Prop({
-    type: [Answer],
-    required: true,
-  })
-  answers: [Answer];
-}
-
 @Schema()
 export class User {
   @Prop({
@@ -84,10 +69,10 @@ export class User {
   finishedLessons: Lesson[];
 
   @Prop({
-    type: [FinishedTest],
-    required: true,
+    type: [mongoose.Schema.Types.ObjectId],
+    required: 'Test',
   })
-  finishedTests: [FinishedTest];
+  finishedTests: Test[];
 
   @Prop()
   role: Role;

@@ -23,6 +23,10 @@ export const LessonPage = () => {
 
   const isFinished = lessonId && user?.finishedLessons.includes(lessonId);
 
+  const isTestFinished =
+    currentCourse?.test !== undefined &&
+    user?.finishedTests.includes(currentCourse?.test);
+
   useEffect(() => {
     if (lessonId) {
       getLesson(lessonId);
@@ -83,7 +87,7 @@ export const LessonPage = () => {
                   Вперед
                 </Button>
               )}
-              {isLastLesson && (
+              {isLastLesson && !isTestFinished && (
                 <Button
                   onClick={finishLesson}
                   to={`/tests/${currentCourse?.test}`}

@@ -10,6 +10,7 @@ export interface User {
   sex: Sex;
   job: Job;
   finishedLessons: string[];
+  finishedTests: string[];
 }
 
 export enum Role {
