@@ -9,6 +9,7 @@ import { ApiBody, ApiTags } from '@nestjs/swagger';
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  @ApiBody({})
   @UseGuards(LocalAuthGuard)
   @Public()
   @Post(`/login`)

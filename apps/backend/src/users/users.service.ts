@@ -23,6 +23,10 @@ export class UsersService {
       .exec();
   }
 
+  async findAll() {
+    return this.usersModel.find({}, { password: 0 }).exec();
+  }
+
   async getUserById(id: string) {
     return this.usersModel.findById(id).populate('job').exec();
   }
