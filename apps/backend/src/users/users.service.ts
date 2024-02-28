@@ -27,6 +27,10 @@ export class UsersService {
     return this.usersModel.find({}, { password: 0 }).exec();
   }
 
+  async findById(id: string) {
+    return this.usersModel.findById(id, { password: 0 }).exec();
+  }
+
   async getUserById(id: string) {
     return this.usersModel.findById(id).populate('job').exec();
   }

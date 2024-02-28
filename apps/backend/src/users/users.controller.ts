@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Request, Put } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Request,
+  Put,
+  Param,
+} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './create-user.dto';
 import { UpdateUserDto } from './update-user.dto';
@@ -23,6 +31,13 @@ export class UsersController {
   @Get('')
   findAll() {
     return this.usersService.findAll();
+  }
+
+  @ApiBearerAuth()
+  @Roles([Role.Admin, Role.Supervisor])
+  @Get(':id')
+  findById(@Param('id') id: string) {
+    return this.usersService.findById(id);
   }
 
   @ApiBearerAuth()
